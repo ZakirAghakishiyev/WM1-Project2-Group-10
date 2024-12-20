@@ -1,0 +1,231 @@
+{
+  "recipes": [
+    {
+      "id": "1",
+      "title": "Pasta Primavera",
+      "description": "A quick and easy pasta recipe.",
+      "ingredients": [
+        "Pasta",
+        "Tomato Sauce",
+        "Vegetables"
+      ],
+      "steps": [
+        "Boil water",
+        "Cook pasta",
+        "Add sauce"
+      ],
+      "tags": [
+        "Vegetarian",
+        "Quick Meal"
+      ],
+      "difficulty": "Easy",
+      "lastUpdated": "2024-06-20T12:00:00Z"
+    },
+    {
+      "id": "2",
+      "title": "Chocolate Chip Cookies",
+      "description": "Classic chewy chocolate chip cookies with a soft center.",
+      "ingredients": [
+        "1 cup butter (softened)",
+        "1 cup white sugar",
+        "1 cup brown sugar",
+        "2 eggs",
+        "1 tsp vanilla extract",
+        "2 cups all-purpose flour",
+        "1 tsp baking soda",
+        "0.5 tsp salt",
+        "2 cups chocolate chips"
+      ],
+      "steps": [
+        "Preheat oven to 350°F (175°C).",
+        "In a large bowl, cream together the softened butter, white sugar, and brown sugar until smooth.",
+        "Beat in the eggs one at a time, then stir in the vanilla extract.",
+        "In a separate bowl, mix flour, baking soda, and salt.",
+        "Gradually add the dry ingredients to the wet mixture until just combined.",
+        "Fold in the chocolate chips.",
+        "Drop spoonfuls of dough onto an ungreased baking sheet.",
+        "Bake for 10-12 minutes, or until the edges are golden brown.",
+        "Cool on wire racks and enjoy!"
+      ],
+      "tags": [
+        "Dessert",
+        "Baking",
+        "Easy"
+      ],
+      "difficulty": "Easy",
+      "lastUpdated": "2024-06-20T12:30:00Z"
+    },
+    {
+      "id": "3",
+      "title": "Grilled Lemon Herb Chicken",
+      "description": "Juicy grilled chicken marinated with fresh herbs and lemon.",
+      "ingredients": [
+        "4 boneless chicken breasts",
+        "2 lemons (juiced and zested)",
+        "3 garlic cloves (minced)",
+        "2 tbsp olive oil",
+        "1 tbsp dried oregano",
+        "1 tsp salt",
+        "0.5 tsp black pepper",
+        "Fresh parsley for garnish"
+      ],
+      "steps": [
+        "In a bowl, mix together lemon juice, lemon zest, garlic, olive oil, oregano, salt, and pepper.",
+        "Place the chicken breasts in a resealable bag or bowl.",
+        "Pour the marinade over the chicken and mix well to coat evenly.",
+        "Let the chicken marinate in the refrigerator for at least 30 minutes (or up to 2 hours).",
+        "Preheat the grill to medium-high heat and oil the grates lightly.",
+        "Grill the chicken for 6-7 minutes per side, or until cooked through and internal temperature reaches 165°F (74°C).",
+        "Remove from the grill and let the chicken rest for 5 minutes.",
+        "Garnish with freshly chopped parsley and serve with lemon wedges."
+      ],
+      "tags": [
+        "Main Course",
+        "Grill",
+        "Healthy"
+      ],
+      "difficulty": "Medium",
+      "lastUpdated": "2024-06-20T12:45:00Z"
+    },
+    {
+      "id": "4",
+      "title": "Vegetable Stir-Fry",
+      "description": "A colorful stir-fry packed with fresh veggies and a savory sauce.",
+      "ingredients": [
+        "1 tbsp vegetable oil",
+        "1 red bell pepper (sliced)",
+        "1 green bell pepper (sliced)",
+        "1 carrot (sliced into thin rounds)",
+        "1 cup broccoli florets",
+        "1 cup snap peas",
+        "2 garlic cloves (minced)",
+        "2 tbsp soy sauce",
+        "1 tbsp oyster sauce",
+        "1 tsp sesame oil",
+        "Cooked rice or noodles (for serving)"
+      ],
+      "steps": [
+        "Heat the vegetable oil in a large wok or skillet over medium-high heat.",
+        "Add garlic and sauté for 30 seconds until fragrant.",
+        "Add the broccoli, carrots, and snap peas. Stir-fry for 2-3 minutes until slightly tender.",
+        "Add the red and green bell peppers. Continue stir-frying for another 2 minutes.",
+        "In a small bowl, mix soy sauce, oyster sauce, and sesame oil.",
+        "Pour the sauce into the stir-fry and toss everything together until well-coated.",
+        "Cook for 1-2 more minutes, ensuring the vegetables are cooked but still crisp.",
+        "Serve hot with rice or noodles."
+      ],
+      "tags": [
+        "Vegetarian",
+        "Quick Meal",
+        "Healthy"
+      ],
+      "difficulty": "Easy",
+      "lastUpdated": "2024-06-20T13:00:00Z"
+    },
+    {
+      "id": 4,
+      "title": "Vegetable Stir-Fry",
+      "description": "A colorful stir-fry packed with fresh veggies and a savory sauce.",
+      "ingredients": [
+        "1 tbsp vegetable oil",
+        "1 red bell pepper (sliced)",
+        "1 green bell pepper (sliced)",
+        "1 carrot (sliced into thin rounds)",
+        "1 cup broccoli florets",
+        "1 cup snap peas",
+        "2 garlic cloves (minced)",
+        "2 tbsp soy sauce",
+        "1 tbsp oyster sauce",
+        "1 tsp sesame oil",
+        "Cooked rice or noodles (for serving)"
+      ],
+      "steps": [
+        "Heat the vegetable oil in a large wok or skillet over medium-high heat.",
+        "Add garlic and sauté for 30 seconds until fragrant.",
+        "Add the broccoli, carrots, and snap peas. Stir-fry for 2-3 minutes until slightly tender.",
+        "Add the red and green bell peppers. Continue stir-frying for another 2 minutes.",
+        "In a small bowl, mix soy sauce, oyster sauce, and sesame oil.",
+        "Pour the sauce into the stir-fry and toss everything together until well-coated.",
+        "Cook for 1-2 more minutes, ensuring the vegetables are cooked but still crisp.",
+        "Serve hot with rice or noodles."
+      ],
+      "tags": [
+        "Vegetarian",
+        "Quick Meal",
+        "Healthy"
+      ],
+      "difficulty": "Easy",
+      "lastUpdated": "2024-06-20T13:00:00Z"
+    },
+    {
+      "id": 4,
+      "title": "Vegetable Stir-Fry",
+      "description": "A colorful stir-fry packed with fresh veggies and a savory sauce.",
+      "ingredients": [
+        "1 tbsp vegetable oil",
+        "1 red bell pepper (sliced)",
+        "1 green bell pepper (sliced)",
+        "1 carrot (sliced into thin rounds)",
+        "1 cup broccoli florets",
+        "1 cup snap peas",
+        "2 garlic cloves (minced)",
+        "2 tbsp soy sauce",
+        "1 tbsp oyster sauce",
+        "1 tsp sesame oil",
+        "Cooked rice or noodles (for serving)"
+      ],
+      "steps": [
+        "Heat the vegetable oil in a large wok or skillet over medium-high heat.",
+        "Add garlic and sauté for 30 seconds until fragrant.",
+        "Add the broccoli, carrots, and snap peas. Stir-fry for 2-3 minutes until slightly tender.",
+        "Add the red and green bell peppers. Continue stir-frying for another 2 minutes.",
+        "In a small bowl, mix soy sauce, oyster sauce, and sesame oil.",
+        "Pour the sauce into the stir-fry and toss everything together until well-coated.",
+        "Cook for 1-2 more minutes, ensuring the vegetables are cooked but still crisp.",
+        "Serve hot with rice or noodles."
+      ],
+      "tags": [
+        "Vegetarian",
+        "Quick Meal",
+        "Healthy"
+      ],
+      "difficulty": "Easy",
+      "lastUpdated": "2024-06-20T13:00:00Z"
+    },
+    {
+      "id": 4,
+      "title": "Vegetable Stir-Fry",
+      "description": "A colorful stir-fry packed with fresh veggies and a savory sauce.",
+      "ingredients": [
+        "1 tbsp vegetable oil",
+        "1 red bell pepper (sliced)",
+        "1 green bell pepper (sliced)",
+        "1 carrot (sliced into thin rounds)",
+        "1 cup broccoli florets",
+        "1 cup snap peas",
+        "2 garlic cloves (minced)",
+        "2 tbsp soy sauce",
+        "1 tbsp oyster sauce",
+        "1 tsp sesame oil",
+        "Cooked rice or noodles (for serving)"
+      ],
+      "steps": [
+        "Heat the vegetable oil in a large wok or skillet over medium-high heat.",
+        "Add garlic and sauté for 30 seconds until fragrant.",
+        "Add the broccoli, carrots, and snap peas. Stir-fry for 2-3 minutes until slightly tender.",
+        "Add the red and green bell peppers. Continue stir-frying for another 2 minutes.",
+        "In a small bowl, mix soy sauce, oyster sauce, and sesame oil.",
+        "Pour the sauce into the stir-fry and toss everything together until well-coated.",
+        "Cook for 1-2 more minutes, ensuring the vegetables are cooked but still crisp.",
+        "Serve hot with rice or noodles."
+      ],
+      "tags": [
+        "Vegetarian",
+        "Quick Meal",
+        "Healthy"
+      ],
+      "difficulty": "Easy",
+      "lastUpdated": "2024-06-20T13:00:00Z"
+    }
+  ]
+}
