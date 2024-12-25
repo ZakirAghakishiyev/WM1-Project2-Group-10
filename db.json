@@ -3,7 +3,7 @@
     {
       "id": "1",
       "title": "Pasta Primavera",
-      "description": "A quick and easy pasta recipe.",
+      "description": "A quick and easy pasta recipe",
       "ingredients": [
         "Pasta",
         "Tomato Sauce",
@@ -18,8 +18,9 @@
         "Vegetarian",
         "Quick Meal"
       ],
-      "difficulty": "Easy",
-      "lastUpdated": "2024-06-20T12:00:00Z"
+      "difficulty": "Hard",
+      "lastUpdated": "2024-12-24T10:15:39.767Z",
+      "isSelected": false
     },
     {
       "id": "2",
@@ -119,11 +120,79 @@
         "Quick Meal",
         "Healthy"
       ],
-      "difficulty": "Easy",
-      "lastUpdated": "2024-06-20T13:00:00Z"
+      "difficulty": "Medium",
+      "lastUpdated": "2024-12-20T18:37:22.104Z"
     },
     {
-      "id": 4,
+      "id": "5",
+      "title": "Simple Scrambled Eggs",
+      "description": "Fluffy scrambled eggs, perfect for a quick breakfast.",
+      "ingredients": [
+        "3 eggs",
+        "1 tbsp butter",
+        "Salt and pepper to taste"
+      ],
+      "steps": [
+        "Crack eggs into a bowl and whisk until well-blended.",
+        "Heat butter in a nonstick skillet over medium heat.",
+        "Pour in the eggs and cook, stirring constantly, until set.",
+        "Season with salt and pepper, and serve immediately."
+      ],
+      "tags": [
+        "Breakfast",
+        "Quick Meal",
+        "Beginner-Friendly"
+      ],
+      "difficulty": "Easy",
+      "lastUpdated": "2024-12-20T19:22:20.772Z"
+    },
+    {
+      "id": "6",
+      "title": "Peanut Butter Banana Toast",
+      "description": "A satisfying snack with natural sweetness.",
+      "ingredients": [
+        "1 slice whole-grain bread",
+        "2 tbsp peanut butter",
+        "1 banana (sliced)",
+        "Honey (optional)"
+      ],
+      "steps": [
+        "Toast the bread to your liking.",
+        "Spread peanut butter evenly on the toast.",
+        "Arrange banana slices on top and drizzle with honey if desired."
+      ],
+      "tags": [
+        "Snack",
+        "Quick",
+        "Healthy"
+      ],
+      "difficulty": "Easy",
+      "lastUpdated": "2024-12-20T19:22:26.459Z"
+    },
+    {
+      "id": "7",
+      "title": "Classic Grilled Cheese Sandwich",
+      "description": "A crispy and gooey classic sandwich.",
+      "ingredients": [
+        "2 slices of bread",
+        "2 slices of cheese",
+        "1 tbsp butter"
+      ],
+      "steps": [
+        "Butter one side of each bread slice.",
+        "Place one slice butter-side-down on a skillet, add cheese, and top with the second slice (butter-side-up).",
+        "Cook over medium heat until golden, flipping to toast the other side."
+      ],
+      "tags": [
+        "Lunch",
+        "Comfort Food",
+        "Kid-Friendly"
+      ],
+      "difficulty": "Easy",
+      "lastUpdated": "2024-12-20T19:23:00.573Z"
+    },
+    {
+      "id": "8",
       "title": "Vegetable Stir-Fry",
       "description": "A colorful stir-fry packed with fresh veggies and a savory sauce.",
       "ingredients": [
@@ -154,78 +223,359 @@
         "Quick Meal",
         "Healthy"
       ],
-      "difficulty": "Easy",
-      "lastUpdated": "2024-06-20T13:00:00Z"
+      "difficulty": "Medium",
+      "lastUpdated": "2024-12-20T19:23:09.442Z"
     },
     {
-      "id": 4,
-      "title": "Vegetable Stir-Fry",
-      "description": "A colorful stir-fry packed with fresh veggies and a savory sauce.",
+      "id": "9",
+      "title": "Spaghetti Carbonara",
+      "description": "A creamy pasta dish with pancetta and Parmesan.",
       "ingredients": [
-        "1 tbsp vegetable oil",
-        "1 red bell pepper (sliced)",
-        "1 green bell pepper (sliced)",
-        "1 carrot (sliced into thin rounds)",
-        "1 cup broccoli florets",
-        "1 cup snap peas",
-        "2 garlic cloves (minced)",
-        "2 tbsp soy sauce",
-        "1 tbsp oyster sauce",
-        "1 tsp sesame oil",
-        "Cooked rice or noodles (for serving)"
+        "12 oz spaghetti",
+        "2 large eggs",
+        "1 cup grated Parmesan cheese",
+        "4 oz pancetta (diced)",
+        "Salt and black pepper"
       ],
       "steps": [
-        "Heat the vegetable oil in a large wok or skillet over medium-high heat.",
-        "Add garlic and sauté for 30 seconds until fragrant.",
-        "Add the broccoli, carrots, and snap peas. Stir-fry for 2-3 minutes until slightly tender.",
-        "Add the red and green bell peppers. Continue stir-frying for another 2 minutes.",
-        "In a small bowl, mix soy sauce, oyster sauce, and sesame oil.",
-        "Pour the sauce into the stir-fry and toss everything together until well-coated.",
-        "Cook for 1-2 more minutes, ensuring the vegetables are cooked but still crisp.",
-        "Serve hot with rice or noodles."
+        "Cook spaghetti according to package instructions. Reserve 1 cup pasta water.",
+        "In a bowl, whisk eggs and Parmesan cheese.",
+        "Sauté pancetta until crispy.",
+        "Toss hot spaghetti with pancetta, egg mixture, and reserved pasta water until creamy.",
+        "Season with salt and pepper, and serve."
       ],
       "tags": [
-        "Vegetarian",
-        "Quick Meal",
-        "Healthy"
+        "Dinner",
+        "Italian",
+        "Comfort Food"
       ],
-      "difficulty": "Easy",
-      "lastUpdated": "2024-06-20T13:00:00Z"
+      "difficulty": "Medium",
+      "lastUpdated": "2024-12-20T19:23:21.179Z"
     },
     {
-      "id": 4,
-      "title": "Vegetable Stir-Fry",
-      "description": "A colorful stir-fry packed with fresh veggies and a savory sauce.",
+      "id": "10",
+      "title": "Chicken Tikka Masala",
+      "description": "A flavorful and creamy Indian curry.",
       "ingredients": [
-        "1 tbsp vegetable oil",
-        "1 red bell pepper (sliced)",
-        "1 green bell pepper (sliced)",
-        "1 carrot (sliced into thin rounds)",
-        "1 cup broccoli florets",
-        "1 cup snap peas",
-        "2 garlic cloves (minced)",
-        "2 tbsp soy sauce",
-        "1 tbsp oyster sauce",
-        "1 tsp sesame oil",
-        "Cooked rice or noodles (for serving)"
+        "2 chicken breasts (cubed)",
+        "1 cup yogurt",
+        "1 tbsp garam masala",
+        "1 onion (chopped)",
+        "1 cup tomato puree",
+        "1 cup cream"
       ],
       "steps": [
-        "Heat the vegetable oil in a large wok or skillet over medium-high heat.",
-        "Add garlic and sauté for 30 seconds until fragrant.",
-        "Add the broccoli, carrots, and snap peas. Stir-fry for 2-3 minutes until slightly tender.",
-        "Add the red and green bell peppers. Continue stir-frying for another 2 minutes.",
-        "In a small bowl, mix soy sauce, oyster sauce, and sesame oil.",
-        "Pour the sauce into the stir-fry and toss everything together until well-coated.",
-        "Cook for 1-2 more minutes, ensuring the vegetables are cooked but still crisp.",
-        "Serve hot with rice or noodles."
+        "Marinate chicken in yogurt and garam masala for 30 minutes.",
+        "Sauté onion until golden, then add tomato puree and cook for 5 minutes.",
+        "Add chicken and cook until tender.",
+        "Stir in cream, simmer, and serve with rice or naan."
       ],
       "tags": [
-        "Vegetarian",
-        "Quick Meal",
-        "Healthy"
+        "Indian",
+        "Spicy",
+        "Dinner"
       ],
+      "difficulty": "Medium",
+      "lastUpdated": "2024-12-20T19:22:30.952Z"
+    },
+    {
+      "id": "11",
+      "title": "Beef Wellington",
+      "description": "A show-stopping beef dish wrapped in pastry.",
+      "ingredients": [
+        "1 beef tenderloin (2 lbs)",
+        "1 sheet puff pastry",
+        "1 lb mushrooms (chopped)",
+        "1 egg (beaten)",
+        "1 tbsp Dijon mustard"
+      ],
+      "steps": [
+        "Sear beef on all sides and let cool.",
+        "Cook mushrooms into a paste.",
+        "Coat beef with mustard, wrap in mushroom paste and pastry, and brush with egg wash.",
+        "Bake at 400°F (200°C) for 30 minutes or until golden."
+      ],
+      "tags": [
+        "Special Occasion",
+        "Gourmet",
+        "Classic"
+      ],
+      "difficulty": "Hard",
+      "lastUpdated": "2024-12-20T19:22:34.921Z"
+    },
+    {
+      "id": "12",
+      "title": "Croissants from Scratch",
+      "description": "Flaky, buttery French pastries.",
+      "ingredients": [
+        "3 3/4 cups all-purpose flour",
+        "1 1/4 cups butter",
+        "1 cup milk",
+        "1/4 cup sugar",
+        "1 tbsp yeast"
+      ],
+      "steps": [
+        "Prepare dough, incorporating butter through folding and rolling.",
+        "Refrigerate and repeat folding multiple times.",
+        "Shape, proof, and bake at 375°F (190°C) until golden."
+      ],
+      "tags": [
+        "Pastry",
+        "French",
+        "Baking"
+      ],
+      "difficulty": "Hard",
+      "lastUpdated": "2024-12-20T19:22:46.972Z"
+    },
+    {
+      "id": "13",
+      "title": "Coq au Vin",
+      "description": "A rich French chicken stew with wine.",
+      "ingredients": [
+        "1 whole chicken (cut into pieces)",
+        "2 cups red wine",
+        "1 cup chicken stock",
+        "1 onion, carrots, celery (chopped)",
+        "Herbs (thyme, bay leaf)"
+      ],
+      "steps": [
+        "Marinate chicken in wine overnight.",
+        "Sauté vegetables, then brown chicken.",
+        "Add marinade, stock, and herbs, then simmer for 2 hours."
+      ],
+      "tags": [
+        "French",
+        "Gourmet",
+        "Stew"
+      ],
+      "difficulty": "Hard",
+      "lastUpdated": "2024-12-20T19:22:51.853Z"
+    },
+    {
+      "id": "14",
+      "title": "Vegetable Soup",
+      "description": "A hearty and healthy soup.",
+      "ingredients": [
+          "2 carrots",
+          "2 celery stalks",
+          "1 onion",
+          "1 cup diced tomatoes",
+          "4 cups vegetable broth"
+      ],
+      "steps": [
+          "Chop vegetables.",
+          "Sauté onions, carrots, and celery until soft.",
+          "Add tomatoes and broth, then simmer for 30 minutes."
+      ],
+      "tags": ["Vegetarian", "Healthy", "Soup"],
       "difficulty": "Easy",
-      "lastUpdated": "2024-06-20T13:00:00Z"
+      "lastUpdated": "2024-12-20T12:00:00Z"
+  },
+  {
+      "id": "15",
+      "title": "Classic Burger",
+      "description": "Juicy grilled beef burgers.",
+      "ingredients": [
+          "1 lb ground beef",
+          "4 burger buns",
+          "Lettuce",
+          "Tomato slices",
+          "Cheese slices"
+      ],
+      "steps": [
+          "Shape beef into patties.",
+          "Grill patties for 4-5 minutes on each side.",
+          "Assemble burgers with toppings and buns."
+      ],
+      "tags": ["Grill", "Dinner", "Comfort Food"],
+      "difficulty": "Medium",
+      "lastUpdated": "2024-12-20T12:30:00Z"
+  },
+  {
+      "id": "16",
+      "title": "Tuna Salad",
+      "description": "A light and refreshing tuna salad.",
+      "ingredients": [
+          "1 can tuna",
+          "1/2 cup mayonnaise",
+          "1 celery stalk (diced)",
+          "Salt and pepper"
+      ],
+      "steps": [
+          "Drain tuna and mix with mayonnaise.",
+          "Add diced celery, salt, and pepper.",
+          "Serve with crackers or in a sandwich."
+      ],
+      "tags": ["Salad", "Healthy", "Quick Meal"],
+      "difficulty": "Easy",
+      "lastUpdated": "2024-12-20T12:45:00Z"
+  },
+  {
+      "id": "17",
+      "title": "Vegetable Curry",
+      "description": "A flavorful curry with mixed vegetables.",
+      "ingredients": [
+          "1 cup diced potatoes",
+          "1 cup diced carrots",
+          "1 cup green beans",
+          "2 cups coconut milk",
+          "2 tbsp curry powder"
+      ],
+      "steps": [
+          "Cook potatoes and carrots in a pan until tender.",
+          "Add green beans, curry powder, and coconut milk.",
+          "Simmer for 10 minutes and serve with rice."
+      ],
+      "tags": ["Vegetarian", "Dinner", "Spicy"],
+      "difficulty": "Medium",
+      "lastUpdated": "2024-12-20T13:00:00Z"
+  },
+  {
+      "id": "18",
+      "title": "Apple Pie",
+      "description": "A classic dessert with sweet cinnamon apples.",
+      "ingredients": [
+          "6 apples (sliced)",
+          "1/2 cup sugar",
+          "1 tsp cinnamon",
+          "Pie crust"
+      ],
+      "steps": [
+          "Mix apples with sugar and cinnamon.",
+          "Place mixture in pie crust and cover with top crust.",
+          "Bake at 375°F for 45 minutes."
+      ],
+      "tags": ["Dessert", "Baking", "Classic"],
+      "difficulty": "Medium",
+      "lastUpdated": "2024-12-20T13:15:00Z"
+  },
+  {
+      "id": "19",
+      "title": "Chicken Alfredo",
+      "description": "Creamy Alfredo pasta with grilled chicken.",
+      "ingredients": [
+          "1 lb fettuccine",
+          "2 chicken breasts",
+          "1 cup heavy cream",
+          "1/2 cup Parmesan cheese",
+          "2 tbsp butter"
+      ],
+      "steps": [
+          "Grill chicken and set aside.",
+          "Cook pasta according to package instructions.",
+          "Heat cream, butter, and Parmesan in a pan.",
+          "Mix sauce with pasta and top with sliced chicken."
+      ],
+      "tags": ["Pasta", "Italian", "Comfort Food"],
+      "difficulty": "Medium",
+      "lastUpdated": "2024-12-20T13:30:00Z"
+  },
+  {
+      "id": "20",
+      "title": "Pancakes",
+      "description": "Fluffy pancakes perfect for breakfast.",
+      "ingredients": [
+          "1 cup all-purpose flour",
+          "1 cup milk",
+          "1 egg",
+          "1 tbsp sugar",
+          "1 tsp baking powder"
+      ],
+      "steps": [
+          "Mix dry ingredients in a bowl.",
+          "Whisk in milk and egg.",
+          "Pour batter onto a heated griddle and cook until golden."
+      ],
+      "tags": ["Breakfast", "Easy", "Classic"],
+      "difficulty": "Easy",
+      "lastUpdated": "2024-12-20T13:45:00Z"
+  },
+  {
+      "id": "21",
+      "title": "Stuffed Bell Peppers",
+      "description": "Bell peppers stuffed with rice and ground beef.",
+      "ingredients": [
+          "4 bell peppers",
+          "1 cup cooked rice",
+          "1/2 lb ground beef",
+          "1 cup tomato sauce",
+          "1 tsp garlic powder"
+      ],
+      "steps": [
+          "Cut tops off peppers and remove seeds.",
+          "Mix rice, beef, and tomato sauce.",
+          "Stuff mixture into peppers and bake at 375°F for 30 minutes."
+      ],
+      "tags": ["Dinner", "Comfort Food", "Healthy"],
+      "difficulty": "Medium",
+      "lastUpdated": "2024-12-20T14:00:00Z"
+  },
+  {
+      "id": "22",
+      "title": "Vegetable Lasagna",
+      "description": "A vegetarian take on the classic lasagna.",
+      "ingredients": [
+          "Lasagna noodles",
+          "Ricotta cheese",
+          "Spinach",
+          "Marinara sauce",
+          "Mozzarella cheese"
+      ],
+      "steps": [
+          "Layer noodles, ricotta, spinach, and marinara.",
+          "Top with mozzarella and bake at 375°F for 40 minutes."
+      ],
+      "tags": ["Vegetarian", "Pasta", "Baking"],
+      "difficulty": "Hard",
+      "lastUpdated": "2024-12-20T14:15:00Z"
+  },
+  {
+      "id": "23",
+      "title": "Chicken Noodle Soup",
+      "description": "A comforting soup with chicken and egg noodles.",
+      "ingredients": [
+          "2 chicken breasts",
+          "4 cups chicken broth",
+          "1 cup egg noodles",
+          "1 carrot (diced)",
+          "1 celery stalk (diced)"
+      ],
+      "steps": [
+          "Cook chicken and shred.",
+          "Simmer vegetables in broth.",
+          "Add chicken and noodles, cook until noodles are tender."
+      ],
+      "tags": ["Soup", "Comfort Food", "Healthy"],
+      "difficulty": "Easy",
+      "lastUpdated": "2024-12-20T14:30:00Z"
+  },
+  {
+      "id": "24",
+      "title": "French Toast",
+      "description": "A sweet breakfast treat.",
+      "ingredients": [
+          "4 slices of bread",
+          "2 eggs",
+          "1/2 cup milk",
+          "1 tsp cinnamon",
+          "Maple syrup (optional)"
+      ],
+      "steps": [
+          "Whisk eggs, milk, and cinnamon.",
+          "Dip bread in mixture and cook on a griddle.",
+          "Serve with syrup."
+      ],
+      "tags": ["Breakfast", "Easy", "Sweet"],
+      "difficulty": "Easy",
+      "lastUpdated": "2024-12-20T14:45:00Z"
+  }
+  ],
+  "messages": [
+    {
+      "id": "2a33",
+      "subject": "Rating",
+      "email": "email@gmail.com",
+      "content": "5 stars, awsome"
     }
   ]
 }
