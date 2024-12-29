@@ -64,63 +64,93 @@ const RecipePage = () => {
 
   const updateRecipe = (id) => {
     const updatedRecipe = {
-      ...editingRecipe,
-      ingredients: Array.isArray(editingRecipe.ingredients)
-        ? editingRecipe.ingredients
-        : editingRecipe.ingredients.split(","),
-      steps: Array.isArray(editingRecipe.steps)
-        ? editingRecipe.steps
-        : editingRecipe.steps.split(","),
-      tags: Array.isArray(editingRecipe.tags)
-        ? editingRecipe.tags
-        : editingRecipe.tags.split(","),
-      lastUpdated: new Date().toISOString(),
+        ...editingRecipe,
+        ingredients: Array.isArray(editingRecipe.ingredients)
+            ? editingRecipe.ingredients // Use as-is if already an array
+            : editingRecipe.ingredients.split(","), // Split if it's a string
+        steps: Array.isArray(editingRecipe.steps)
+            ? editingRecipe.steps
+            : editingRecipe.steps.split(","),
+        tags: Array.isArray(editingRecipe.tags)
+            ? editingRecipe.tags
+            : editingRecipe.tags.split(","),
+        lastUpdated: new Date().toISOString(),
     };
 
     axios
-      .put(`${API_URL}/${id}`, updatedRecipe)
-      .then((response) => {
-        setRecipes(recipes.map((recipe) => (recipe.id === id ? response.data : recipe)));
-        setEditingRecipe(null);
-      })
-      .catch((error) => console.error("Error updating recipe:", error));
-  };
+        .put(`${API_URL}/${id}`, updatedRecipe)
+        .then((response) => {
+            setRecipes(
+                recipes.map((recipe) =>
+                    recipe.id === id ? response.data : recipe
+                )
+            );
+            setEditingRecipe(null); // Exit edit mode
+        })
+        .catch((error) => console.error("Error updating recipe:", error));
+};
+
 
   const filteredRecipes = recipes
-    .filter(
-      (recipe) =>
-        recipe.title.toLowerCase().includes(search.toLowerCase()) ||
-        recipe.description.toLowerCase().includes(search.toLowerCase())
-    )
-    .filter((recipe) =>
-      filter ? recipe.tags.includes(filter) || recipe.difficulty === filter : true
-    )
-    .sort((a, b) => {
-      if (sortOption === "title") return a.title.localeCompare(b.title);
-      if (sortOption === "difficulty") return a.difficulty.localeCompare(b.difficulty);
-      if (sortOption === "lastUpdated") return new Date(b.lastUpdated) - new Date(a.lastUpdated);
-      return 0;
-    });
+  .filter((recipe) => {
+    const titleMatch = recipe.title?.toLowerCase().includes(search.toLowerCase());
+    const descriptionMatch = recipe.description?.toLowerCase().includes(search.toLowerCase());
+    return titleMatch || descriptionMatch;
+  })
+  .filter((recipe) => {
+    const tagsMatch = Array.isArray(recipe.tags) && recipe.tags.includes(filter);
+    const difficultyMatch = recipe.difficulty === filter;
+    return filter ? tagsMatch || difficultyMatch : true;
+  })
+  .sort((a, b) => {
+    if (sortOption === "title") return a.title?.localeCompare(b.title) || 0;
+    if (sortOption === "difficulty") return a.difficulty?.localeCompare(b.difficulty) || 0;
+    if (sortOption === "lastUpdated") {
+      const dateA = new Date(a.lastUpdated);
+      const dateB = new Date(b.lastUpdated);
+      return dateB - dateA; 
+    }
+    return 0; 
+  });
+
 
   const toggleExpandRecipe = (id) => {
     setExpandedRecipe(expandedRecipe === id ? null : id);
   };
 
-  const handleDragEnd = (result) => {
+  const handleDragEnd = async (result) => {
     if (!result.destination) return;
-
+  
+    // Calculate global indices
+    const globalSourceIndex = (currentPage - 1) * itemsPerPage + result.source.index;
+    const globalDestinationIndex = (currentPage - 1) * itemsPerPage + result.destination.index;
+  
+    // Reorder the recipes in the global array
     const reorderedRecipes = Array.from(recipes);
-    const [moved] = reorderedRecipes.splice(result.source.index, 1);
-    reorderedRecipes.splice(result.destination.index, 0, moved);
-
-    setRecipes(reorderedRecipes);
-
-    fetch('http://localhost:3000/recipes/order', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(reorderedRecipes),
-    });
+    const [movedRecipe] = reorderedRecipes.splice(globalSourceIndex, 1);
+    reorderedRecipes.splice(globalDestinationIndex, 0, movedRecipe);
+  
+    // Update the order property based on the new global index
+    const updatedRecipes = reorderedRecipes.map((recipe, index) => ({
+      ...recipe,
+      order: index, // Assign a new order value
+    }));
+  
+    setRecipes(updatedRecipes); // Update the state with the new order
+  
+    // Save changes to the JSON server
+    try {
+      for (const recipe of updatedRecipes) {
+        await axios.put(`${API_URL}/${recipe.id}`, { ...recipe });
+      }
+      console.log("Order updated successfully");
+    } catch (error) {
+      console.error("Error updating order:", error);
+    }
   };
+  
+ 
+  
 
   const toggleRecipeSelection = (id) => {
     setRecipes((prevRecipes) =>
@@ -150,17 +180,28 @@ const RecipePage = () => {
   };
 
 
-  const loadMoreRecipes = async () => {
-    const response = await fetch(`http://localhost:3000/recipes?_page=${currentPage}&_limit=10`);
-    const newRecipes = await response.json();
-    setRecipes((prevRecipes) => [...prevRecipes, ...newRecipes]);
-    setCurrentPage(currentPage + 1);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 20;
+  
+  // Calculate recipes to display on the current page
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentRecipes = filteredRecipes.slice(indexOfFirstItem, indexOfLastItem);
+  
+  // Handle page change
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
   };
+  
+  // Generate pagination buttons
+  const totalPages = Math.ceil(filteredRecipes.length / itemsPerPage);
+  const pageNumbers = [...Array(totalPages).keys()].map((num) => num + 1);
+  
 
   return (
     <div className="recipe-container">
       <h1>Recipes</h1>
-
+  
       {/* Search, Filter, and Sort Options */}
       <div className="search-filter-container">
         <input
@@ -182,158 +223,168 @@ const RecipePage = () => {
           <option value="lastUpdated">Sort by Last Updated</option>
         </select>
       </div>
-
+  
       {/* Share Selected Recipes Button */}
       <button className="share-button" onClick={handleShare}>
         Share Selected Recipes
       </button>
-
+  
       {/* Drag-and-Drop Context */}
       <DragDropContext onDragEnd={handleDragEnd}>
-        <Droppable droppableId="recipes">
-          {(provided) => (
-            <div
-              className="recipe-list"
-              {...provided.droppableProps}
-              ref={provided.innerRef}
+  <Droppable droppableId="recipes">
+    {(provided) => (
+      <div
+        className="recipe-list"
+        {...provided.droppableProps}
+        ref={provided.innerRef}
+      >
+        {currentRecipes
+          .sort((a, b) => a.order - b.order) // Sort recipes by the order property
+          .map((recipe, index) => (
+            <Draggable
+              key={recipe.id}
+              draggableId={recipe.id.toString()}
+              index={index}
             >
-              <InfiniteScroll
-                dataLength={recipes.length}
-                next={loadMoreRecipes}
-                hasMore={true}
-                loader={<h4>Loading more recipes...</h4>}
-              >
-                {recipes.map((recipe, index) => (
-                  <Draggable
-                    key={recipe.id}
-                    draggableId={recipe.id.toString()}
-                    index={index}
-                  >
-                    {(provided) => (
-                      <div
-                        ref={provided.innerRef}
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                        className="recipe-card"
-                      >
-                        <label className="recipe-select-label">
-                          <input
-                            type="checkbox"
-                            checked={recipe.isSelected || false}
-                            onChange={() => toggleRecipeSelection(recipe.id)}
-                            className="recipe-checkbox"
-                          />
-                          <span className="checkbox-custom"></span>
-                          Select
-                        </label>
+              {(provided) => (
+                <div
+                  ref={provided.innerRef}
+                  {...provided.draggableProps}
+                  {...provided.dragHandleProps}
+                  className="recipe-card"
+                >
+                  <label className="recipe-select-label">
+                    <input
+                      type="checkbox"
+                      checked={recipe.isSelected || false}
+                      onChange={() => toggleRecipeSelection(recipe.id)}
+                      className="recipe-checkbox"
+                    />
+                    <span className="checkbox-custom"></span>
+                    Select
+                  </label>
 
-                        <h3>{recipe.title}</h3>
-                        <p>{recipe.description}</p>
-                        <p>
-                          <strong>Difficulty:</strong> {recipe.difficulty}
-                        </p>
-                        <p>
-                          <strong>Last Updated:</strong>{" "}
-                          {new Date(recipe.lastUpdated).toLocaleString()}
-                        </p>
-                        <div className="recipe-actions">
-                          <button onClick={() => deleteRecipe(recipe.id)}>
-                            Delete
-                          </button>
-                          <button onClick={() => setEditingRecipe(recipe)}>
-                            Edit
-                          </button>
-                          <button onClick={() => toggleExpandRecipe(recipe.id)}>
-                            {expandedRecipe === recipe.id
-                              ? "Hide Details"
-                              : "View Details"}
-                          </button>
-                        </div>
-                        {expandedRecipe === recipe.id && (
-                          <div className="recipe-details">
-                            <h4>Ingredients:</h4>
-                            <ul>
-                              {recipe.ingredients.map((ingredient, index) => (
-                                <li key={index}>{ingredient}</li>
-                              ))}
-                            </ul>
-                            <h4>Steps:</h4>
-                            <ol>
-                              {recipe.steps.map((step, index) => (
-                                <li key={index}>{step}</li>
-                              ))}
-                            </ol>
-                            <h4>Tags:</h4>
-                            <p>{recipe.tags.join(", ")}</p>
-                          </div>
-                        )}
-                        {editingRecipe && editingRecipe.id === recipe.id && (
-                          <div className="form-container">
-                            <input
-                              name="title"
-                              value={editingRecipe.title}
-                              onChange={handleEditChange}
-                            />
-                            <textarea
-                              name="description"
-                              value={editingRecipe.description}
-                              onChange={handleEditChange}
-                            />
-                            <input
-                              name="ingredients"
-                              value={
-                                Array.isArray(editingRecipe.ingredients)
-                                  ? editingRecipe.ingredients.join(",")
-                                  : editingRecipe.ingredients
-                              }
-                              onChange={handleEditChange}
-                            />
-                            <input
-                              name="steps"
-                              value={
-                                Array.isArray(editingRecipe.steps)
-                                  ? editingRecipe.steps.join(",")
-                                  : editingRecipe.steps
-                              }
-                              onChange={handleEditChange}
-                            />
-                            <input
-                              name="tags"
-                              value={
-                                Array.isArray(editingRecipe.tags)
-                                  ? editingRecipe.tags.join(",")
-                                  : editingRecipe.tags
-                              }
-                              onChange={handleEditChange}
-                            />
-                            <select
-                              name="difficulty"
-                              value={editingRecipe.difficulty}
-                              onChange={handleEditChange}
-                            >
-                              <option value="Easy">Easy</option>
-                              <option value="Medium">Medium</option>
-                              <option value="Hard">Hard</option>
-                            </select>
-                            <button onClick={() => updateRecipe(recipe.id)}>
-                              Save
-                            </button>
-                            <button onClick={() => setEditingRecipe(null)}>
-                              Cancel
-                            </button>
-                          </div>
-                        )}
+                  <h3>{recipe.title}</h3>
+                  <p>{recipe.description}</p>
+                  <p>
+                    <strong>Difficulty:</strong> {recipe.difficulty}
+                  </p>
+                  <p>
+                    <strong>Last Updated:</strong>{" "}
+                    {new Date(recipe.lastUpdated).toLocaleString()}
+                  </p>
+                  <div className="recipe-actions">
+                    <button onClick={() => deleteRecipe(recipe.id)}>Delete</button>
+                    <button onClick={() => setEditingRecipe(recipe)}>Edit</button>
+                    {editingRecipe && editingRecipe.id === recipe.id && (
+                      <div className="edit-form-container">
+                        <input
+                          name="title"
+                          placeholder="Title"
+                          value={editingRecipe.title}
+                          onChange={handleEditChange}
+                        />
+                        <textarea
+                          name="description"
+                          placeholder="Description"
+                          value={editingRecipe.description}
+                          onChange={handleEditChange}
+                        />
+                        <input
+                          name="ingredients"
+                          placeholder="Ingredients (comma-separated)"
+                          value={
+                            Array.isArray(editingRecipe.ingredients)
+                              ? editingRecipe.ingredients.join(",")
+                              : editingRecipe.ingredients
+                          }
+                          onChange={handleEditChange}
+                        />
+                        <input
+                          name="steps"
+                          placeholder="Steps (comma-separated)"
+                          value={
+                            Array.isArray(editingRecipe.steps)
+                              ? editingRecipe.steps.join(",")
+                              : editingRecipe.steps
+                          }
+                          onChange={handleEditChange}
+                        />
+                        <input
+                          name="tags"
+                          placeholder="Tags (comma-separated)"
+                          value={
+                            Array.isArray(editingRecipe.tags)
+                              ? editingRecipe.tags.join(",")
+                              : editingRecipe.tags
+                          }
+                          onChange={handleEditChange}
+                        />
+                        <select
+                          name="difficulty"
+                          value={editingRecipe.difficulty}
+                          onChange={handleEditChange}
+                        >
+                          <option value="Easy">Easy</option>
+                          <option value="Medium">Medium</option>
+                          <option value="Hard">Hard</option>
+                        </select>
+                        <button onClick={() => updateRecipe(recipe.id)}>Save</button>
+                        <button
+                          className="cancel-button"
+                          onClick={() => setEditingRecipe(null)}
+                        >
+                          Cancel
+                        </button>
                       </div>
                     )}
-                  </Draggable>
-                ))}
-                {provided.placeholder}
-              </InfiniteScroll>
-            </div>
-          )}
-        </Droppable>
-      </DragDropContext>
 
+                    <button onClick={() => toggleExpandRecipe(recipe.id)}>
+                      {expandedRecipe === recipe.id ? "Hide Details" : "View Details"}
+                    </button>
+                  </div>
+                  {expandedRecipe === recipe.id && (
+                    <div className="recipe-details">
+                      <h4>Ingredients:</h4>
+                      <ul>
+                        {recipe.ingredients.map((ingredient, idx) => (
+                          <li key={idx}>{ingredient}</li>
+                        ))}
+                      </ul>
+                      <h4>Steps:</h4>
+                      <ol>
+                        {recipe.steps.map((step, idx) => (
+                          <li key={idx}>{step}</li>
+                        ))}
+                      </ol>
+                      <h4>Tags:</h4>
+                      <p>{recipe.tags.join(", ")}</p>
+                    </div>
+                  )}
+                </div>
+              )}
+            </Draggable>
+          ))}
+        {provided.placeholder}
+      </div>
+    )}
+  </Droppable>
+</DragDropContext>
+
+  
+      {/* Pagination Controls */}
+      <div className="pagination">
+        {pageNumbers.map((number) => (
+          <button
+            key={number}
+            onClick={() => handlePageChange(number)}
+            className={number === currentPage ? "active" : ""}
+          >
+            {number}
+          </button>
+        ))}
+      </div>
+  
       {/* Form to Add New Recipes */}
       <div className="form-container">
         <h2>Add New Recipe</h2>
@@ -380,6 +431,7 @@ const RecipePage = () => {
       </div>
     </div>
   );
+  
 };
 
 export default RecipePage;
