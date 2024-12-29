@@ -55,22 +55,52 @@ h1 {
     color: #ffffff;
 }
 
+.featured-recipes {
+    display: flex; /* Use flexbox for horizontal alignment */
+    gap: 20px; /* Space between articles */
+    justify-content: center; /* Center articles within the container */
+    margin-top: 20px;
+}
+
 .article {
+    flex: 1; /* Allow articles to take equal space */
+    max-width: 500px; /* Limit the width of each article */
     background-color: #e6511a;
     padding: 15px;
     border-radius: 8px;
-    margin-top: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 
 .article h3 {
     font-size: 1.5rem;
     color: #ffffff;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .article p {
     font-size: 1rem;
     color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.article a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #dff64c;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+}
+
+.article a:hover {
+    text-decoration: underline;
 }
 
 footer {
