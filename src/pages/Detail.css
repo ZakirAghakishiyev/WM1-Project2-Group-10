@@ -1,0 +1,89 @@
+.detail-container {
+    margin: 0;
+    padding: 0;
+    background-color: #23401d;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+}
+
+.detail-container .recipe-container {
+    margin: 20px auto;
+    max-width: 1155px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.detail-container .recipe-container h1 {
+    font-size: 2.5rem;
+    color: #c6a162;
+    margin-bottom: 20px;
+}
+
+.detail-container .recipe-container p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #23401d;
+    margin-bottom: 15px;
+}
+
+.detail-container .recipe-container h3 {
+    font-size: 1.8rem;
+    color: #23401d;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.detail-container .recipe-container ul,
+.detail-container .recipe-container ol {
+    padding-left: 0; /* Removes default padding for centering */
+    list-style-position: inside; /* Ensures list bullets/numbers are inside and aligned */
+    margin-bottom: 20px;
+    display: inline-block; /* Ensures lists are centered */
+    text-align: left; /* Aligns list content left for readability */
+}
+
+.detail-container .recipe-container ul li,
+.detail-container .recipe-container ol li {
+    font-size: 1rem;
+    color: #23401d;
+    margin-bottom: 8px;
+}
+
+.detail-container .recipe-container .tags {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #e6511a;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+.detail-container .recipe-container .tags span {
+    display: inline-block;
+    margin-right: 8px;
+    background-color: #c6a162;
+    color: #23401d;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+.detail-container footer {
+    background-color: #23401d;
+    color: #c6a162;
+    text-align: center;
+    padding: 10px;
+    margin-top: 40px;
+    font-size: 0.9rem;
+}
+
+.detail-container footer a {
+    color: #ef784e;
+    text-decoration: none;
+}
+
+.detail-container footer a:hover {
+    text-decoration: underline;
+}

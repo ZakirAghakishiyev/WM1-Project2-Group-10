@@ -14,6 +14,7 @@ nav {
   border-style: inset;
   border-width: 3px;
   border-color: #168400;
+  margin-top: -20px;
 }
 
 nav a {
