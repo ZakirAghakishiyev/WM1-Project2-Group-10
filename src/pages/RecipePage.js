@@ -3,7 +3,8 @@ import axios from "axios";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import emailjs from "@emailjs/browser";
 import './recipe.css';
-
+import Next from "./right-arrow.png"
+import Previous from "./left-arrow.png"
 
 const API_URL = "http://localhost:3000/recipes";
 
@@ -434,6 +435,13 @@ const RecipePage = () => {
   
       {/* Pagination Controls */}
       <div className="pagination">
+      <button
+    onClick={() => handlePageChange(currentPage - 1)}
+    disabled={currentPage === 1}
+    className="pagination-button"
+  >
+    <img src={Previous} alt="Previous" className="pagination-icon" />
+  </button>
         {pageNumbers.map((number) => (
           <button
             key={number}
@@ -443,7 +451,15 @@ const RecipePage = () => {
             {number}
           </button>
         ))}
+          <button
+    onClick={() => handlePageChange(currentPage + 1)}
+    disabled={currentPage === totalPages}
+    className="pagination-button"
+  >
+    <img src={Next} alt="Next" className="pagination-icon" />
+  </button>
       </div>
+
   
       {/* Form to Add New Recipes */}
       <div className="form-container">

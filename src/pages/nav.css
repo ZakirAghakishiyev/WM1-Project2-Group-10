@@ -19,15 +19,28 @@ nav {
 
 nav a {
   text-decoration: none;
-  color: white;
+  color: #23401d;
   padding: 8px 15px;
   transition: background-color 0.3s, color 0.3s;
   border-radius: 5px;
+  width: 33%;
+  text-align: center;
+  border-top: 0px;
+  border-radius: 5px /*5px 50% 50%*/;
+  border-style: solid;
+  border-color: #23401d;
+  border-width: 2px 2px 0 2px;
+}
+
+nav a.two{
+  border-radius: /*50% 50% 5px*/ 5px;
+  border-width: 0 2px 2px 2px;
 }
 
 nav a:hover {
   background-color: #23401d;
   color: #e6511a;
+  /*border-color: white ;*/
 }
 
 nav a.active {
