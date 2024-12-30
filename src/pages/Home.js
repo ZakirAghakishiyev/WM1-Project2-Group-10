@@ -1,23 +1,47 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
+import axios from 'axios';
 
 const Home = () => {
+  const [featuredRecipes, setFeaturedRecipes] = useState([]);
+
+  useEffect(() => {
+    // Fetch recipes from the API
+    axios
+      .get('http://localhost:3000/recipes') // Replace with your actual API URL
+      .then((response) => {
+        const recipes = response.data;
+        // Randomly select two recipes
+        const shuffledRecipes = recipes.sort(() => 0.5 - Math.random());
+        setFeaturedRecipes(shuffledRecipes.slice(0, 2)); // Take the first two recipes
+      })
+      .catch((error) => console.error('Error fetching recipes:', error));
+  }, []);
+
   return (
     <div>
       <h1>Welcome to Recipe Manager</h1>
-      <h2 className='welcome'>Manage your recipes effortlessly and keep them organized!</h2>
+      <h2 className="welcome">Manage your recipes effortlessly and keep them organized!</h2>
 
       <section className="section">
-        <h2>Featured Recipe</h2>
-        <article className="article">
-          <h3>Chocolate Chip Cookies</h3>
-          <p>A classic favorite that is perfect for any occasion.</p>
-          <p>
-            <strong>Difficulty:</strong> Easy
-          </p>
-          <Link to="/recipes/2">See full recipe</Link>
-        </article>
+        <h2>Featured Recipes</h2>
+        <div className="featured-recipes">
+          {featuredRecipes.length > 0 ? (
+            featuredRecipes.map((recipe) => (
+              <article className="article" key={recipe.id}>
+                <h3>{recipe.title}</h3>
+                <p>{recipe.description}</p>
+                <p>
+                  <strong>Difficulty:</strong> {recipe.difficulty}
+                </p>
+                <Link to={`/details/${recipe.id}`}>See full recipe</Link>
+              </article>
+            ))
+          ) : (
+            <p>Loading...</p>
+          )}
+        </div>
       </section>
 
       <section className="section">
@@ -42,7 +66,11 @@ const Home = () => {
       <footer>
         <p>
           © 2024 Recipe Manager. Made with ❤️. Visit our{' '}
-          <a href="https://github.com/ZakirAghakishiyev/WM1-Project2-Group-10" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://github.com/ZakirAghakishiyev/WM1-Project2-Group-10"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             GitHub
           </a>
           .
