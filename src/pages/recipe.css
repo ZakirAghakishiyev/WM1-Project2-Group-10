@@ -3,32 +3,32 @@ body {
     padding: 0;
     font-family: 'Arial', sans-serif;
     background-color: #23401d;
-}
-
-.recipe-container {
+  }
+  
+  .recipe-container {
     margin: 0 auto;
     max-width: 1200px;
     padding: 20px;
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.recipe-container h1 {
+  }
+  
+  .recipe-container h1 {
     font-size: 2.5rem;
     color: #c6a162;
     text-align: center;
     margin-bottom: 20px;
-}
-
-.search-filter-container {
+  }
+  
+  .search-filter-container {
     display: flex;
     flex-wrap: wrap;
     gap: 15px;
     margin-bottom: 20px;
-}
-
-.search-filter-container input[type="text"] {
+  }
+  
+  .search-filter-container input[type="text"] {
     flex: 1;
     padding: 10px;
     border: 2px solid #c6a162;
@@ -36,15 +36,15 @@ body {
     font-size: 16px;
     color: #23401d;
     background-color: #f8f8f8;
-}
-
-.search-filter-container input[type="text"]:focus {
+  }
+  
+  .search-filter-container input[type="text"]:focus {
     border-color: #ef784e;
     outline: none;
     background-color: #ffffff;
-}
-
-.search-filter-container select {
+  }
+  
+  .search-filter-container select {
     padding: 10px;
     border: 2px solid #c6a162;
     border-radius: 5px;
@@ -52,21 +52,21 @@ body {
     color: #23401d;
     background-color: #f8f8f8;
     max-width: 200px;
-}
-
-.search-filter-container select:focus {
+  }
+  
+  .search-filter-container select:focus {
     border-color: #ef784e;
     outline: none;
     background-color: #ffffff;
-}
-
-.recipe-list {
+  }
+  
+  .recipe-list {
     display:flow-root;
     grid-template-columns: repeat(2, 300px);
     gap: 20px;
-}
-
-.recipe-card {
+  }
+  
+  .recipe-card {
     background-color: #e6511a;
     padding: 15px;
     border-radius: 8px;
@@ -74,27 +74,31 @@ body {
     width: 90%;
     /* height: 90%; */
     margin-bottom: 10px;
-}
-
-.recipe-card h3 {
+  }
+  
+  .recipe-card h3 {
     font-size: 1.5rem;
     color: #ffffff;
     margin-bottom: 10px;
-}
-
-.recipe-card p {
+  }
+  
+  .recipe-card p {
     font-size: 1rem;
     color: #ffffff;
     margin: 10px 0;
-}
-
-.recipe-card .recipe-actions {
+  }
+  .recipe-card ul,ol,h4 {
+    color: #ffffff;
+    /*margin: 10px 0;*/
+  }
+  
+  .recipe-card .recipe-actions {
     display: flex;
     justify-content: space-between;
     gap: 10px;
-}
-
-.recipe-card button {
+  }
+  
+  .recipe-card button {
     padding: 8px 12px;
     border: none;
     border-radius: 5px;
@@ -103,33 +107,33 @@ body {
     font-size: 14px;
     cursor: pointer;
     transition: background-color 0.2s;
-}
-
-.recipe-card button:hover {
+  }
+  
+  .recipe-card button:hover {
     background-color: #dff64c;
     color: #23401d;
-}
-
-.form-container {
+  }
+  
+  .form-container {
     margin-top: 30px;
     background-color: #ef784e;
     padding: 20px;
     border-radius: 10px;
-}
-
-.form-container h2 {
+  }
+  
+  .form-container h2 {
     font-size: 1.8rem;
     color: #23401d;
     margin-bottom: 15px;
-}
-
-textarea{
+  }
+  
+  textarea{
     resize: none;
-}
-
-.form-container input,
-.form-container textarea,
-.form-container select {
+  }
+  
+  .form-container input,
+  .form-container textarea,
+  .form-container select {
     width: 97.5%;
     padding: 12px;
     margin-bottom: 15px;
@@ -138,21 +142,21 @@ textarea{
     font-size: 16px;
     color: #23401d;
     background-color: #f8f8f8;
-}
-
-.form-container select{
+  }
+  
+  .form-container select{
     width: 100%;
-}
-
-.form-container input:focus,
-.form-container textarea:focus,
-.form-container select:focus {
+  }
+  
+  .form-container input:focus,
+  .form-container textarea:focus,
+  .form-container select:focus {
     border-color: #ef784e;
     outline: none;
     background-color: #ffffff;
-}
-
-.form-container button {
+  }
+  
+  .form-container button {
     display: block;
     width: 100%;
     padding: 10px;
@@ -163,31 +167,31 @@ textarea{
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.2s;
-}
-
-.form-container button:hover {
+  }
+  
+  .form-container button:hover {
     background-color: #c6a162;
-}
-
-footer {
+  }
+  
+  footer {
     background-color: #23401d;
     color: #c6a162;
     text-align: center;
     padding: 10px;
     margin-top: 40px;
     font-size: 0.9rem;
-}
-
-footer a {
+  }
+  
+  footer a {
     color: #ef784e;
     text-decoration: none;
-}
-
-footer a:hover {
+  }
+  
+  footer a:hover {
     text-decoration: underline;
-}
-
-.share-button {
+  }
+  
+  .share-button {
     display: block;
     margin: 20px auto;
     padding: 10px 20px;
@@ -198,49 +202,49 @@ footer a:hover {
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.share-button:hover {
+  }
+  
+  .share-button:hover {
     background-color: #d9441a;
-    transform: scale(1.05);
-}
-
-.recipe-card {
+    /*transform: scale(1.05);*/
+  }
+  
+  .recipe-card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
     position: relative;
     padding-right: 60px; /* Adjust as needed to create space for buttons */
-}
-
-.recipe-actions {
+  }
+  
+  .recipe-actions {
     display: flex;
     flex-direction: column; /* Change layout to vertical */
     position: absolute;
     top: 15px; /* Adjust position to align with the card */
     right: 15px; /* Place buttons on the right */
     gap: 10px; /* Space between buttons */
-}
-
-.recipe-card button {
+  }
+  
+  .recipe-card button {
     width: 100%; /* Ensure buttons are consistent in size */
-}
-
-.recipe-select-label {
+  }
+  
+  .recipe-select-label {
     display: flex;
     align-items: center;
     cursor: pointer;
     font-size: 1rem;
     color: #ffffff;
     gap: 8px; /* Space between checkbox and text */
-}
-
-.recipe-checkbox {
+  }
+  
+  .recipe-checkbox {
     display: none; /* Hide the default checkbox */
-}
-
-.checkbox-custom {
+  }
+  
+  .checkbox-custom {
     width: 20px;
     height: 20px;
     border: 2px solid #ffffff; /* Border for the custom checkbox */
@@ -249,9 +253,9 @@ footer a:hover {
     position: relative;
     cursor: pointer;
     transition: background-color 0.2s ease, border-color 0.2s ease;
-}
-
-.checkbox-custom::after {
+  }
+  
+  .checkbox-custom::after {
     content: "";
     position: absolute;
     top: 50%;
@@ -262,18 +266,218 @@ footer a:hover {
     transform: scale(0) translate(-50%, -50%);
     transition: transform 0.2s ease;
     border-radius: 2px; /* Optional for rounded checkmarks */
-}
-
-.recipe-checkbox:checked + .checkbox-custom {
+  }
+  
+  .recipe-checkbox:checked + .checkbox-custom {
     background-color: #c6a162;
     border-color: #c6a162;
-}
-
-.recipe-checkbox:checked + .checkbox-custom::after {
+  }
+  
+  .recipe-checkbox:checked + .checkbox-custom::after {
     transform: scale(1) translate(-50%, -50%);
-}
-
-.recipe-select-label:hover .checkbox-custom {
+  }
+  
+  .recipe-select-label:hover .checkbox-custom {
     border-color: #ef784e;
-}
-
+  }
+  
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px; /* Space between buttons */
+  }
+  
+  .pagination button {
+    padding: 10px 15px;
+    background-color: #ef784e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .pagination button:hover {
+    background-color: #d9441a;
+    transform: scale(1.05); /* Slightly enlarge on hover */
+  }
+  
+  .pagination button.active {
+    background-color: #23401d;
+    color: #c6a162;
+    cursor: default; /* No pointer cursor for active button */
+    transform: none; /* Disable hover effect on active button */
+  }
+  
+  .pagination button:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+    transform: none;
+  }
+  
+  .pagination button:disabled:hover {
+    background-color: #ccc; /* No hover effect for disabled buttons */
+    transform: none;
+  }
+  
+  
+  .recipe-card {
+    position: relative;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #e6511a;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .recipe-card h3 {
+    margin-bottom: 10px;
+  }
+  
+  .recipe-card p {
+    margin-bottom: 10px;
+  }
+  .edit-form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-top: 10px;
+    position: relative; 
+    z-index: 10; 
+    width: 400px;
+  }
+  
+  
+  .edit-form-container input,
+  .edit-form-container textarea,
+  .edit-form-container select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+  
+  .edit-form-container input:focus,
+  .edit-form-container textarea:focus,
+  .edit-form-container select:focus {
+    border-color: #ef784e;
+    outline: none;
+    background-color: #fefefe;
+  }
+  
+  .edit-form-container button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #23401d;
+    color: #ffffff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .edit-form-container button:hover {
+    background-color: #c6a162;
+  }
+  
+  .edit-form-container button.cancel-button {
+    background-color: #ef784e;
+  }
+  
+  .edit-form-container button.cancel-button:hover {
+    background-color: #d9441a;
+  }
+  
+  .send-container {
+    margin-top: 30px;
+    background-color: #ef784e;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .send-container h2 {
+    font-size: 1.8rem;
+    color: #23401d;
+    margin-bottom: 15px;
+  }
+  
+  .send-container input {
+    width: 97.5%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid #c6a162;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #23401d;
+    background-color: #f8f8f8;
+    box-sizing: border-box;
+  }
+  
+  .send-container input:focus {
+    border-color: #ef784e;
+    outline: none;
+    background-color: #ffffff;
+  }
+  
+  .send-container button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #23401d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease;
+  }
+  
+  .note {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically (if parent has height) */
+    font-size: 1rem;
+    color: #c6a162;
+    text-align: center;
+    margin: 20px auto;
+  }
+  
+  
+  .send-container button:hover {
+    background-color: #c6a162;
+    transform: scale(1.05);
+  }
+  
+  .toggle-send-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: #ef784e;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .toggle-send-button:hover {
+    background-color: #d9441a;
+    transform: scale(1.05);
+  }
+  
+  

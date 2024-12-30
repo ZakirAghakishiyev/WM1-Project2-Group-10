@@ -1,19 +1,22 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import './recipe.css';
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
-import InfiniteScroll from "react-infinite-scroll-component";
 import emailjs from "@emailjs/browser";
+import './recipe.css';
 
 
 const API_URL = "http://localhost:3000/recipes";
 
 const RecipePage = () => {
+  const [userName, setUserName] = useState("");
+  const [userEmail, setUserEmail] = useState("");
+  const [emailSubject, setEmailSubject] = useState("");
   const [recipes, setRecipes] = useState([]);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("");
   const [sortOption, setSortOption] = useState("");
   const [expandedRecipe, setExpandedRecipe] = useState(null);
+  const [showSendContainer, setShowSendContainer] = useState(false);
   const [newRecipe, setNewRecipe] = useState({
     title: "",
     description: "",
@@ -150,7 +153,9 @@ const RecipePage = () => {
   };
   
  
-  
+  const toggleSendContainer = () => {
+    setShowSendContainer((prev) => !prev); 
+  };
 
   const toggleRecipeSelection = (id) => {
     setRecipes((prevRecipes) =>
@@ -164,20 +169,42 @@ const RecipePage = () => {
     const selectedRecipes = recipes.filter((recipe) => recipe.isSelected);
 
     if (selectedRecipes.length === 0) {
-      alert("No recipes selected to share!");
-      return;
+        alert("No recipes selected to share!");
+        return;
+    }
+
+    if (!userName || !userEmail || !emailSubject) {
+        alert("Please provide your name, the recipient's email, and the email subject!");
+        return;
     }
 
     const recipeJSON = JSON.stringify(selectedRecipes, null, 2);
 
-    const blob = new Blob([recipeJSON], { type: "application/json" });
-    const link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
-    link.download = "selected_recipes.json";
-    link.click();
+    // EmailJS parameters
+    const emailParams = {
+        subject: emailSubject, // Use the subject entered by the user
+        to_email: userEmail, // Use the email entered by the user
+        message: recipeJSON, // Recipe data
+        name: userName, // Include the user's name
+    };
 
-    console.log("Recipes shared as JSON:", recipeJSON);
-  };
+    // Send email with attachment using EmailJS
+    emailjs.send(
+        "service_t42gi2d",  // Your EmailJS Service ID
+        "template_076ozhc", // Your EmailJS Template ID
+        emailParams,
+        "DWeHBjVCPfRSI7hFO" // Your EmailJS User ID
+    )
+    .then(() => {
+        alert("Recipes shared successfully via email!");
+    })
+    .catch((error) => {
+        console.error("Failed to share recipes via email:", error);
+        alert("Failed to send email. Please try again.");
+    });
+};
+
+
 
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -210,6 +237,7 @@ const RecipePage = () => {
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
+
         <select value={filter} onChange={(e) => setFilter(e.target.value)}>
           <option value="">All</option>
           <option value="Easy">Easy</option>
@@ -225,9 +253,41 @@ const RecipePage = () => {
       </div>
   
       {/* Share Selected Recipes Button */}
-      <button className="share-button" onClick={handleShare}>
-        Share Selected Recipes
+      <button
+        className="toggle-send-button"
+        onClick={toggleSendContainer}
+      >
+        {showSendContainer ? "Close Send Form" : "Open Send Form"}
       </button>
+        <p className="note">Note: Select the recipes you want to send and open form</p>  
+
+      {showSendContainer && (
+      <div className="send-container">
+        <h2>Send Recipes</h2>
+        <input
+          type="text"
+          placeholder="Enter your name"
+          value={userName}
+          onChange={(e) => setUserName(e.target.value)}
+        />
+        <input
+          type="email"
+          placeholder="Enter recipient's email"
+          value={userEmail}
+          onChange={(e) => setUserEmail(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Enter email subject"
+          value={emailSubject}
+          onChange={(e) => setEmailSubject(e.target.value)}
+        />
+        <button className="share-button" onClick={handleShare}>
+          Share Selected Recipes
+        </button>
+
+</div>)};
+
   
       {/* Drag-and-Drop Context */}
       <DragDropContext onDragEnd={handleDragEnd}>
