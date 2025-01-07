@@ -74,6 +74,14 @@ const Home = () => {
             GitHub
           </a>
           .
+
+          <br/> <br/> <a
+      href="https://youtu.be/xa8nl9U3tug"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Watch Our Video Explanation of the Website Features
+    </a>
         </p>
       </footer>
     </div>
